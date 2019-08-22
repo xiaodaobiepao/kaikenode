@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch1</title>
+</head>
+<body>
+  <!-- <img src="" alt=""> -->
+  <button id="btn1">读取</button>
+  <script>
+    window.onload=function () {
+      let oBtn = document.getElementById('btn1')
+      oBtn.onclick = async function() {
+        let req = await fetch('data/1.json')
+        console.log(req)
+        let res = await req.json()
+        console.log(res)
+      }
+    }  
+  </script>
+</body>
+</html>
