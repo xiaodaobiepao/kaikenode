@@ -18,4 +18,6 @@ http.createServer(function(req, res) {
   form.on('close', () => {
     console.log('解析完成')
   })
+  res.headers['content-type'] = 'text/plain'
+  res.end('成功解析')
 }).listen(8080)

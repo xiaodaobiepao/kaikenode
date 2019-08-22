@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>formdata</title>
+</head>
+<body>
+    <form id="form1" action="http://localhost:8080/" method="post">
+      用户：<input type="text" name="user" /><br>
+      密码：<input type="password" name="pass" /><br>
+      文件：<input type="file" name="f1" /><br>
+      <input type="submit" value="提交">
+    </form>
+  <script>
+    let forms = document.getElementById('form1')
+    forms.onsubmit = function() {
+      let formdata = new FormData(forms)
+      let xhr = new XMLHttpRequest()
+      xhr.open(forms.method, forms.action, true)
+      xhr.send(formdata)
+      xhr.onreadystatechange = function(state) {
+        if (state === 4) {
+          console.log('chenggong')
+        } else {
+          console.log('失败')
+        }
+      }
+    }
+  </script>
+</body>
+</html>
